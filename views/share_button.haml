@@ -1,0 +1,21 @@
+%div
+  %div
+    :js
+      /* more info at http://sharethis.com/developers/api/ */
+      SHARETHIS.addEntry({
+        <?if(isset($title)):?>
+      		title:'<?=j($title)?>',
+        <?endif;?>
+        <?if(isset($summary)):?>
+      		summary:'<?=j($summary)?>',
+        <?endif;?>
+        <?if(isset($url)):?>
+      		url:'<?=j($url)?>',
+        <?endif;?>
+          dummy: false
+      	}, {button:true} );
+  -if(isset($url) && isset($display_url) && $display_url)
+    %div
+      URL: 
+      %input{:type=>'text', :size=>20, :value=>$url, :onclick=>" $(this).focus();$(this).select();", :style=>'width: 250px;min-width:250px'}
+%div
